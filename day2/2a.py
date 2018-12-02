@@ -18,6 +18,6 @@ def calculateChecksum(boxIds):
 
 
 if __name__ == "__main__":
-    boxIds = sys.argv[1:]
+    boxIds = map(lambda s: s.strip(), sys.argv[1:])    
     checksum = calculateChecksum(boxIds)
     print(checksum)
