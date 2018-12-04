@@ -6,7 +6,7 @@ from datetime import datetime
 def parseGuardSleepPattern(sleepPatternText):
   match = re.match(r"\[(.*)\] (.*)", sleepPatternText)
   if not match:
-    raise "Cannot parse this pattern"
+    raise Exception("Cannot parse this pattern")
 
   event = {}
   event["date"] = datetime.strptime(match.group(1), "%Y-%m-%d %H:%M")
@@ -73,7 +73,7 @@ def processSleepPattens(sleepPatternEvents):
       i += 2
       continue
 
-    raise Exception("Ops")
+    raise Exception("Some weird event ordering thing happened")
 
   return guardSleepMap
 
